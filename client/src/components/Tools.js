@@ -1,6 +1,18 @@
 import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
-import { UserContext } from "../context/user"
+import React, { useState } from "react"
+
+export const UserContext = React.createContext()
+
+export const UserProvider = ({children}) => {
+    const [user, setUser] = useState(null)
+    return (
+        <UserContext.Provider value={{user, setUser}}>
+            {children}
+        </UserContext.Provider>
+    )
+}
+
 
 export const NavButton = ({path="/", text="back"}) => {
     
@@ -14,7 +26,7 @@ export const NavButton = ({path="/", text="back"}) => {
 
 export const Logout = () => {
 
-    const {user, setUser} = useContext(UserContext)
+    const {setUser} = useContext(UserContext)
 
     const navigate = useNavigate()
 

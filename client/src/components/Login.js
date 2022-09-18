@@ -1,7 +1,6 @@
 import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { UserContext } from "../context/user"
-import { NavButton } from "./Tools"
+import { NavButton, UserContext } from "./Tools"
 
 export const Login = () => {
 

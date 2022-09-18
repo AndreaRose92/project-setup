@@ -6,7 +6,8 @@ import { NotFound } from './components/NotFound';
 import { Login } from './components/Login';
 import { Signup } from './components/Signup';
 import { User } from './components/User';
-import { UserProvider } from "./context/user" 
+import { UserProvider } from './components/Tools';
+
 
 
 export const App = () => {

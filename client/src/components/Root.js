@@ -1,22 +1,20 @@
 import { useContext, useEffect } from "react"
-import { UserContext } from "../context/user"
-import { NavButton } from "./Tools"
+import { NavButton, UserContext } from "./Tools"
 
 export const Root = () => {
 
     const {user, setUser} = useContext(UserContext)
 
     useEffect(()=>{
+        if (!user){
         fetch('/me').then(r=>{
             if (r.ok) {
                 r.json().then(data=>setUser(data))
-            } else {
-                r.json().then(error=>{setUser(null); console.log(error)})
-            }
-        })
-    }, [])
+            } 
+        })}
+    }, [user, setUser])
 
-    if (user) {
+    if (user !== null) {
         return (
             <>
                 <h1>Welcome to the internet, {user.username}</h1>

@@ -1,6 +1,5 @@
 import { useContext } from "react"
-import { UserContext } from "../context/user"
-import { Logout } from "./Tools"
+import { Logout, UserContext } from "./Tools"
 
 export const User = () => {    
 
