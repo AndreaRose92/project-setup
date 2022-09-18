@@ -5,22 +5,25 @@ import { Root } from './components/Root';
 import { NotFound } from './components/NotFound';
 import { Login } from './components/Login';
 import { Signup } from './components/Signup';
+import { User } from './components/User';
+import { UserProvider } from "./context/user" 
 
-function App() {
+
+export const App = () => {
+  
   return (
-    
     <>
-      <Routes>
-        <Route index element={<Root />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
-
+      <UserProvider>
+        <Routes>
+          <Route path='*' element={<NotFound />} />
+          <Route index element={<Root />} />
+          <Route path='/user/:id' element={<User />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<Signup />} />
+        </Routes>
+      </UserProvider>
     </>
 
 
   );
 }
-
-export default App;
